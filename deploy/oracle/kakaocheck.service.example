@@ -1,0 +1,16 @@
+[Unit]
+Description=Kakao Check Node Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/kakaocheck
+ExecStart=/usr/bin/env npm run start
+Restart=always
+RestartSec=3
+Environment=NODE_ENV=production
+Environment=PORT=3000
+EnvironmentFile=/home/ubuntu/kakaocheck/.env
+
+[Install]
+WantedBy=multi-user.target
